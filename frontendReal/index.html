@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #f2f2f2;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #333;
+        text-decoration: none;
+        padding: 10px;
+      }
+      section {
+        padding: 20px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        return (
+          <div>
+            <header>
+              <h1>Restaurant Name</h1>
+            </header>
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">Menu</a>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+            </nav>
+            <section>
+              <h2>Welcome to our Restaurant</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                euismod, nisl nec tincidunt lacinia, nisl nisl aliquet nisl,
+                eget aliquet nisl nisl eget nisl.
+              </p>
+            </section>
+            <footer>
+              <p>&copy; 2023 Restaurant Name. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
