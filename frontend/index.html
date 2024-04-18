@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Website</title>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #f2f2f2;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #333;
+        text-decoration: none;
+        padding: 10px;
+      }
+      section {
+        padding: 20px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const [menuItems, setMenuItems] = React.useState([]);
+
+        React.useEffect(() => {
+          fetch('http://127.0.0.1:3000/get-menu')
+            .then(response => response.json())
+            .then(data => setMenuItems(data))
+            .catch(error => console.error('Error fetching menu:', error));
+        }, []);
+
+        return (
+          <div>
+            <header>
+              <h1>Restaurant Name</h1>
+            </header>
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">Menu</a>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+            </nav>
+            <section>
+              <h2>Menu</h2>
+              <ul>
+                {menuItems.map(item => (
+                  <li key={item.id}>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p>Price: ${item.price}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <footer>
+              <p>&copy; 2023 Restaurant Name. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html> 

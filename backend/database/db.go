@@ -49,16 +49,13 @@ func Connect() {
 
 func runMigrations(db *sqlx.DB) {
 	_, err := db.Exec(`
-	
-	CREATE TABLE menu (
-		id INT PRIMARY KEY AUTO_INCREMENT,
+	CREATE TABLE IF NOT EXISTS menu (
+		id SERIAL PRIMARY KEY,
 		name VARCHAR(255) NOT NULL,
 		description TEXT,
 		price DECIMAL(10, 2) NOT NULL
 	);
-	
-
-	`)
+`)
 	if err != nil {
 		log.Fatal("Failed to run migrations. \n", err)
 		os.Exit(2)
