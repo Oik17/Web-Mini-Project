@@ -16,6 +16,7 @@
         const [menuItems, setMenuItems] = React.useState([]);
         const [cart, setCart] = React.useState([]);
         const [totalPrice, setTotalPrice] = React.useState(0);
+        const [showOrderPlacedPopup, setShowOrderPlacedPopup] = React.useState(false);
 
         React.useEffect(() => {
           fetch('http://127.0.0.1:8000/get-menu')
@@ -26,13 +27,24 @@
 
         const addToCart = item => {
           setCart([...cart, item]);
-          setTotalPrice(totalPrice + item.price);
+          const newTotalPrice = (totalPrice + parseFloat(item.price)).toFixed(2);
+          setTotalPrice(parseFloat(newTotalPrice));
+        };
+
+        const placeOrder = () => {
+          setCart([]);
+          setTotalPrice(0);
+          setShowOrderPlacedPopup(true);
+        };
+
+        const closePopup = () => {
+          setShowOrderPlacedPopup(false);
         };
 
         return (
           <div>
             <header>
-              <h1>Restaurant.AI</h1>
+              <h1>621 Heritage</h1>
             </header>
             <nav>
               <a href="index.html">Home</a>
@@ -63,13 +75,24 @@
                     ))}
                   </ul>
                   <p>Total Price: ${totalPrice}</p>
+                  <button onClick={placeOrder}>Place Order</button>
                 </div>
               ) : (
                 <p>Your cart is empty.</p>
               )}
             </section>
+            {showOrderPlacedPopup && (
+              <div className="popup">
+                <div className="popup-content">
+                  <span className="close" onClick={closePopup}>
+                    &times;
+                  </span>
+                  <p>Order Placed!</p>
+                </div>
+              </div>
+            )}
             <footer>
-              <p>&copy; 2023 Restaurant.AI. All rights reserved.</p>
+              <p>&copy; 2023 621 Heritage. All rights reserved.</p>
             </footer>
           </div>
         );
