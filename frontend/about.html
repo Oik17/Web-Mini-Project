@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function AboutPage() {
+        return (
+          <div>
+            <header>
+              <h1>Restaurant.AI</h1>
+            </header>
+            <nav>
+              <a href="index.html">Home</a>
+              <a href="index.html">Menu</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+            <section>
+              <h2>About Us</h2>
+              <p>
+                Welcome to Restaurant.AI, a restaurant with keeps in touch with the upcoming AI trends.
+              </p>
+              <p>
+                Established in 2023, our restaurant has become a beloved gathering place for locals and visitors alike. Our warm and inviting atmosphere, combined with our friendly staff, creates a dining experience that feels like a home away from home.
+              </p>
+              <p>
+                Whether you're in the mood for a romantic dinner, a night out with friends, or a family celebration, we have something for everyone. Join us and indulge in the flavors that have made our restaurant a favorite in the area.
+              </p>
+            </section>
+            <footer>
+              <p>&copy; 2023 Restaurant.AI. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      }
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<AboutPage />);
+    </script>
+  </body>
+</html>

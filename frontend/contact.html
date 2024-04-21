@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Restaurant Website</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function ContactPage() {
+        return (
+          <div>
+            <header>
+              <h1>Restaurant.AI</h1>
+            </header>
+            <nav>
+              <a href="index.html">Home</a>
+              <a href="index.html">Menu</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+            <section>
+              <h2>Contact Us</h2>
+              <p>
+                Email: akshat@RestaurantAI.com <br />
+                Phone: 9871205678
+              </p>
+            </section>
+            <footer>
+              <p>&copy; 2023 Restaurant.AI. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<ContactPage />);
+    </script>
+  </body>
+</html>
