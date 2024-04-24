@@ -64,6 +64,7 @@ footer {
   padding: 20px;
   text-align: center;
 }
+
 .popup {
   position: fixed;
   z-index: 1;
@@ -94,5 +95,40 @@ footer {
 .close:focus {
   color: black;
   text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styles for the takeaway form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+}
+
+form > div {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }

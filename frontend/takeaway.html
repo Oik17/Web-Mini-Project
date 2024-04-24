@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Takeaway Order</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function TakeawayForm() {
+        const [address, setAddress] = React.useState('');
+        const [deliveryTime, setDeliveryTime] = React.useState('');
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          // Here, you can send the address and deliveryTime data to your backend
+          console.log('Address:', address);
+          console.log('Delivery Time:', deliveryTime);
+          // Reset the form
+          setAddress('');
+          setDeliveryTime('');
+        };
+
+        return (
+          <div>
+            <header>
+              <h1>621 Heritage</h1>
+            </header>
+            <nav>
+              <a href="index.html">Home</a>
+              <a href="index.html">Menu</a>
+              <a href="about.html">About Us</a>
+              <a href="contact.html">Contact Us</a>
+            </nav>
+            <section>
+              <h2>Takeaway Order</h2>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label>
+                    Address:
+                    <input
+                      type="text"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Preferred Delivery Time:
+                    <input
+                      type="text"
+                      value={deliveryTime}
+                      onChange={(e) => setDeliveryTime(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div>
+                  <button type="submit">Place Order</button>
+                </div>
+              </form>
+            </section>
+            <footer>
+              <p>&copy; 2023 621 Heritage. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<TakeawayForm />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
