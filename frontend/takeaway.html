@@ -15,15 +15,17 @@
       function TakeawayForm() {
         const [address, setAddress] = React.useState('');
         const [deliveryTime, setDeliveryTime] = React.useState('');
+        const [showOrderPlacedPopup, setShowOrderPlacedPopup] = React.useState(false);
 
         const handleSubmit = (e) => {
           e.preventDefault();
-          // Here, you can send the address and deliveryTime data to your backend
-          console.log('Address:', address);
-          console.log('Delivery Time:', deliveryTime);
-          // Reset the form
           setAddress('');
           setDeliveryTime('');
+          setShowOrderPlacedPopup(true);
+        };
+
+        const closePopup = () => {
+          setShowOrderPlacedPopup(false);
         };
 
         return (
@@ -67,6 +69,16 @@
                 </div>
               </form>
             </section>
+            {showOrderPlacedPopup && (
+              <div className="popup">
+                <div className="popup-content">
+                  <span className="close" onClick={closePopup}>
+                    &times;
+                  </span>
+                  <p>Order Placed for Takeaway!</p>
+                </div>
+              </div>
+            )}
             <footer>
               <p>&copy; 2023 621 Heritage. All rights reserved.</p>
             </footer>
